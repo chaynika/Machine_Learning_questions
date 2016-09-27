@@ -1,5 +1,4 @@
-Compare the two approaches on the Breast Cancer data set, which can be down-
-loadded from Blackboard. Complete description of the data set can be found at http:// archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic% 29. In the data file, please discard the first column of each row, which is the id number. The
+Compare the two approaches on the Breast Cancer data set. Complete description of the data set can be found at http:// archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic% 29. In the data file, please discard the first column of each row, which is the id number. The
 second to the 10th columns are the features, and the last column is the class label (2 for
 benign, 4 for malignant). Please replace class label 2 with +1, and class label 4 with -1.
 In this problem you will obtain the learning curves similar to those from the lecture notes.
@@ -11,5 +10,4 @@ where 0 ≤ θj ≤ 1. It may be easier to think of this as a normalized histogr
 multi-value extension of the Bernoulli.
 Use the first 2 of the examples as the training set and the remaining 1 as the test set.
 For each algorithm:
-– (5 points) Briefly describe how you implement it by giving the pseudocode. The pseu- docode must include equations for estimating the classification parameters and for clas- sifying a new example. Remember, this should not be a printout of your code, but a high-level outline. Include the pseudocode in your pdf file (or .doc/.docx file). Sub- mit the actual code as a single zip file named yourFirstName-yourLastName.zip IN ADDITION TO the pdf file (or .doc/.docx file).
-– (10 points) Plot a learning curve: the accuracy vs. the size of the training data. Generate 6 points on the curve, using [.01 .02 .03 .125 .625 1] RANDOM fractions of you training set and testing on the full test set each time. Average your results over 5 runs using 5 random fractions of the training set. Plot both the Naive Bayes and Logistic Regression learning curves on the same figure. For Naive Bayies, add 1 to each bin. For Logistic Regression, do not use the regularization term.
+–  Plot a learning curve: the accuracy vs. the size of the training data. Generate 6 points on the curve, using [.01 .02 .03 .125 .625 1] RANDOM fractions of you training set and testing on the full test set each time. Average your results over 5 runs using 5 random fractions of the training set. Plot both the Naive Bayes and Logistic Regression learning curves on the same figure. For Naive Bayies, add 1 to each bin. For Logistic Regression, do not use the regularization term.
