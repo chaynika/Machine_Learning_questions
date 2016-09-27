@@ -1,3 +1,6 @@
+## Always sync this file with the following command from your terminal:
+## "cp /Users/csaikia/Dropbox/Monodeep/SML_ass_2/hw2/* /Users/csaikia/SML_assignment/Machine_Learning_questions/KNN_HOT_OR_NOT/"
+
 import scipy.io as sio
 import matplotlib.pyplot as plt
 
@@ -17,7 +20,7 @@ testlabels_learner=[]
 
 # Write function for pre-computed distances between all pairs of points
 def euclidean_distance():
-    
+
 # Write function to find Euclidian distance, my k-NN learner function
 def learner_function(arr,type_of_data,k):
 
@@ -77,3 +80,17 @@ plot_points(train_error_arr)
 plt.plot(k_arr, test_error_arr, 'b')
 plot_points(test_error_arr)
 plt.show()
+
+## Find k which shows minimum training error
+k_min_train_error= k_arr[train_error_arr.index(min(train_error_arr))]
+print "Value of k for minimum training error is %s" %(k_min_train_error)
+
+## Find k which shows minimum test error
+k_min_test_error=k_arr[test_error_arr.index(min(test_error_arr))]
+print "Value of k for minimum test error is %s" %(k_min_test_error)
+
+if k_min_train_error != k_min_test_error:
+    print "The two values of k are different for minimum training error and test error"
+else:
+    print "The value of k is same for minimum training error and test error"
+
