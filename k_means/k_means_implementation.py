@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-#!/usr/bin/env python
 ##################################################
 #     Copyright (c) 2016 by Chaynika Saikia      #
 ##################################################
-#
-=======
-##################################################
-#     Copyright (c) 2016 by Chaynika Saikia      #
-##################################################
->>>>>>> 43fccf9901c0ecafb1f5cec23cbd634ef0d6b065
 import numpy as np
 import random
 import matplotlib.pyplot as plt
