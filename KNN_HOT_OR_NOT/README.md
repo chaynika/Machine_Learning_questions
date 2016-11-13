@@ -1,6 +1,2 @@
-***********************************************
-      PLEASE DO NOT COPY THIS CODE
-***********************************************
-
 The file faces.mat contains the Matlab variables traindata (training data), trainlabels (training labels), testdata (test data), testlabels (test labels) and evaldata (evaluation data, needed later). This is a facial attractiveness classification task: given a picture of a face, you need to predict whether the average rating of the face is hot or not. So, each row corresponds to a data point (a picture). Each column is a feature, a pixel. The value of the feature is the value of the pixel in a grayscale image. cosineDistance.m implements the cosine distance, a simple distance function. It takes two feature vectors x and y, and computes a nengative, symmetric distance between x and y. To check your data, compute the distance between the first training example from each class. (It should be 0.2617)
 Implement the k-Nearest Neighbor (k-NN) algorithm. You might want to pre-compute the dis- tance between all pairs of points, to speed up the computation. For k = 1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, compute and plot the training error and the test error. 
