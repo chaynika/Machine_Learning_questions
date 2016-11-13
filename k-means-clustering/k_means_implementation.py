@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+##################################################
+#     Copyright (c) 2016 by Chaynika Saikia      #
+##################################################
+#
 import numpy as np
 import random
 import matplotlib.pyplot as plt
@@ -14,7 +19,6 @@ max_iterations=10000
 
 # Randomly allocate cluster points function
 
-iteration=0
 test_label=np.zeros(len(data)).astype(int)
 
 def allocate_cluster_centers(k):
@@ -47,25 +51,6 @@ def recentre(k):
         centre_arr.append(centre)
     return centre_arr
 
-def k_means_algo(k):
-    print("In k_means_algo for -->",k)
-    current_centres=allocate_cluster_centers(k)
-    current_class_labels=data[:,-1]
-    while iteration<max_iterations :
-        prev_class_labels=current_class_labels
-        current_class_labels=classify(current_centres,k)
-        prev_centres=current_centres
-        current_centres=recentre(k)
-        counters = Counter(data[:, -1])
-        if 0 in counters.values():
-            j = counters.keys()[counters.values().index(0)]
-            current_centres[j]=split_cluster()
-        if (np.array_equal(prev_class_labels,current_class_labels)) and (np.array_equal(current_centres, prev_centres)) :
-            print("For convergence----> labels ", current_class_labels)
-            print("For convergence----> centres ",current_centres)
-            return compute_min_objective(current_centres)
-    return compute_min_objective(current_centres)
-
 def largest_cluster():
     return max(Counter(data[:,-1])).astype(int)
 
@@ -78,17 +63,39 @@ def split_cluster():
     new_centre=data[random.choice(indices),:-1]
     return new_centre
 
-def plot_points(arr):
-    for i,j in zip(k_arr,arr):
-        ax.annotate('%s)' % j, xy=(i, j), xytext=(30, 0), textcoords='offset points')
-        ax.annotate('(%s,' % i, xy=(i, j))
-
 def compute_min_objective(centres):
     #print("In compute_min_objective")
     ans=0
     for i in range(len(data)):
         ans=ans+math.pow(np.linalg.norm(centres[data[i,-1].astype(int)]-data[i,:-1]),2)
     return ans
+
+def k_means_algo(k):
+    print("In k_means_algo for -->",k)
+    current_centres=allocate_cluster_centers(k)
+    current_class_labels=data[:,-1]
+    iteration=0
+    while iteration<max_iterations :
+        prev_class_labels=current_class_labels
+        current_class_labels=classify(current_centres,k)
+        prev_centres=current_centres
+        current_centres=recentre(k)
+        counters = Counter(data[:, -1])
+        if 0 in counters.values():
+            j = counters.keys()[counters.values().index(0)]
+            current_centres[j]=split_cluster()
+        if (np.array_equal(prev_class_labels,current_class_labels)) and (np.array_equal(current_centres, prev_centres)) :
+            print("For convergence----> iteration", iteration)
+            print("For convergence----> labels ", current_class_labels)
+            print("For convergence----> centres ",current_centres)
+            return compute_min_objective(current_centres)
+        iteration=iteration+1
+    return compute_min_objective(current_centres)
+
+def plot_points(arr):
+    for i,j in zip(k_arr,arr):
+        ax.annotate('%s)' % j, xy=(i, j), xytext=(30, 0), textcoords='offset points')
+        ax.annotate('(%s,' % i, xy=(i, j))
 
 ##########
 #  MAIN  #
